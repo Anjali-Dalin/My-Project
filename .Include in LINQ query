@@ -1,0 +1,14 @@
+ public Company GetCompanyDetails(string code)
+        {
+            var employee = from item in dbContext.Employee
+                          .Include("Address")
+                          .Include("Education")
+                          .Include("Experience")
+                          where item.EmployeeCode == code
+                          select item;
+            return employee.FirstOrDefault();
+            
+
+        }
+        
+   to include child tables with same param.
